@@ -10,7 +10,7 @@ RSpec.describe 'As a user' do
 
       expect(current_path).to eq(foods_path)
       expect(page).to have_content('Total foods with sweet potatoes: 31834')
-      expect(page).to have_css("li", :count => 10)
+      expect(page).to have_css('li', :count => 10)
 
       within('#1119530') do
         description = 'SWEETS MEDLEY SEL GRIS, BATATA, SWEET POTATO, PURPLE SWEET POTATO REAL VEGETABLE CHIPS, SWEETS MEDLEY'
@@ -22,12 +22,21 @@ RSpec.describe 'As a user' do
       end
     end
 
-    xit 'Searching for nothing returns no results' do
+    it 'Searching for nothing returns no results' do
+      visit root_path
 
+      click_on 'Search'
+
+      expect(current_path).to eq(foods_path)
+      expect(page).to have_content('Please search for something and we will get you some foods!')
+      expect(page).to have_css('li', :count => 0)
     end
 
-    xit 'Visit foods directly' do
+    it 'I get a 404 if I visit foods directly' do
+      visit foods_path
 
+      expect(current_path).to eq(root_path)
+      # Want to add notice later of what happened
     end
   end
 end
