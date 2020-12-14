@@ -61,13 +61,4 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-
-  VCR.configure do |config|
-    config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
-    config.hook_into :webmock
-    config.filter_sensitive_data('<DONT_USE_MY_API_KEY>') { ENV['USDA_KEY'] }
-    config.before_record do |i|
-      i.response.body.force_encoding('UTF-8')
-    end
-  end
 end
