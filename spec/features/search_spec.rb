@@ -36,7 +36,7 @@ RSpec.describe 'As a user' do
       visit foods_path
 
       expect(current_path).to eq(root_path)
-      # Want to add notice later of what happened
+      expect(page).to have_content('You need to search for something first!')
     end
   end
 end
