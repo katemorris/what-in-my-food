@@ -1,0 +1,11 @@
+<h1>Search Results</h1>
+<p>Total foods with <%= @ingredient %>: <%= @total_results %></p>
+<ol>
+  <% @foods.each do |food| %>
+    <div id="<%= food.id %>">
+      <li><b><%= food.upc %></b> from <%= food.brand %></li>
+      <p>Description: <%= food.description %></p>
+      <p>Ingredients: <%= food.ingredients %></p>
+    </div>
+  <% end %>
+</ol>
