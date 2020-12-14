@@ -22,8 +22,15 @@ RSpec.describe Food do
       expect(food.id).to eq(1119530)
       expect(food.upc).to eq('728229015529')
       expect(food.brand).to eq('The Hain Celestial Group, Inc.')
-      expect(food.description).to eq(description)
-      expect(food.ingredients).to eq(ingredients)
+      expect(food.description).to eq(description.capitalize)
+      expect(food.ingredients).to eq(ingredients.capitalize)
+    end
+  end
+
+  describe 'instance methods' do
+    it '.capitalize()' do
+      description = "SWEETS MEDLEY SEL GRIS"
+      expect(description.capitalize).to eq('Sweets medley sel gris')
     end
   end
 end

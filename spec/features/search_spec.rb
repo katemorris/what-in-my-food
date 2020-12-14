@@ -16,9 +16,9 @@ RSpec.describe 'As a user' do
         description = 'SWEETS MEDLEY SEL GRIS, BATATA, SWEET POTATO, PURPLE SWEET POTATO REAL VEGETABLE CHIPS, SWEETS MEDLEY'
         ingredients = 'A BLEND OF SWEET POTATOES (SWEET POTATO, PURPLE SWEET POTATO, BATATA), AVOCADO OIL, SEA SALT.'
         expect(page).to have_content('728229015529')
-        expect(page).to have_content(description)
+        expect(page).to have_content(description.capitalize)
         expect(page).to have_content('The Hain Celestial Group, Inc.')
-        expect(page).to have_content(ingredients)
+        expect(page).to have_content(ingredients.capitalize)
       end
     end
 

@@ -4,7 +4,11 @@ class Food
     @id = data[:fdcId]
     @upc = data[:gtinUpc]
     @brand = data[:brandOwner]
-    @description = data[:description]
-    @ingredients = data[:ingredients]
+    @description = capitalize(data[:description])
+    @ingredients = capitalize(data[:ingredients])
+  end
+
+  def capitalize(data)
+    data.capitalize
   end
 end
